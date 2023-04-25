@@ -2,7 +2,8 @@
 ##Done By: Eyoel Mulugeta 
 
 ##Intorduction 
-examination of the dataset for Uber pickups in New York City.
+
+Examination of the dataset for Uber pickups in New York City.
 
 ##Chart that shows Trips by Hour and Month
 
