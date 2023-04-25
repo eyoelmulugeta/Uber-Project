@@ -1,11 +1,11 @@
 # Uber-Project
-##Done By: Eyoel Mulugeta 
+## Done By: Eyoel Mulugeta 
 
-##Intorduction 
+## Intorduction 
 
 Examination of the dataset for Uber pickups in New York City.
 
-##Chart that shows Trips by Hour and Month
+## Chart that shows Trips by Hour and Month
 
 <img width="1440" alt="Screen Shot 2023-04-25 at 3 17 38 PM" src="https://user-images.githubusercontent.com/112992643/234393631-caad9546-919e-4e61-860f-29db7005cf86.png">
 The line chart displays the total number of trips by hour and month. It consists of multiple lines, each representing a different month, and shows how the number of trips changes over the hours of the day for each month.
@@ -16,7 +16,7 @@ The x-axis represents the hour of the day, ranging from 0 (midnight) to 23 (11 P
 By examining the lines, you can observe how the number of trips varies by hour of the day for each month. For example, you may notice that there are higher trip counts during certain hours of the day in specific months, while other hours have lower trip counts. This information can help identify patterns or trends in the data, such as peak hours of demand or changes in travel behavior by month.
 
 
-##Chart that displays Trips Every Hour.
+## Chart that displays Trips Every Hour.
 <img width="1440" alt="Screen Shot 2023-04-25 at 3 18 12 PM" src="https://user-images.githubusercontent.com/112992643/234394127-81c78313-9ac2-4343-8c64-68ea181181bd.png">
 
 
@@ -27,7 +27,7 @@ The x-axis represents the hours of the day, ranging from 0 (midnight) to 23 (11 
 By examining the heights of the bars, you can see the distribution of trips throughout the day. This can help identify patterns, trends, or peaks in trip counts during certain hours, which can be useful for understanding travel patterns and demand for transportation services during different times of the day.
 
 
-##Plot data by trips taken during every day of the month.
+## Plot data by trips taken during every day of the month.
 <img width="1440" alt="Screen Shot 2023-04-25 at 3 18 28 PM" src="https://user-images.githubusercontent.com/112992643/234394590-aa805634-e8d3-4a87-8baf-97a891506e3f.png">
 
 
@@ -35,7 +35,7 @@ The chart is a line chart that shows the total number of trips for each day of t
 
 The x-axis represents the days of the month, ranging from the 1st day to the last day of the month. The y-axis represents the total number of trips. The line on the chart connects the data points, showing the trend of trips taken over the course of the month.
 
-##table that shows Trips Every Day
+## table that shows Trips Every Day
 
 <img width="1440" alt="Screen Shot 2023-04-25 at 3 18 43 PM" src="https://user-images.githubusercontent.com/112992643/234395246-bee197a2-6a00-4baa-a704-37ed5fab64ca.png">
 
