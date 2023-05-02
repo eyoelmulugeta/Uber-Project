@@ -5,16 +5,23 @@
 
 Examination of the dataset for Uber pickups in New York City.
 
-## Chart that shows Trips by Hour and Month
-
-<img width="1440" alt="Screen Shot 2023-04-25 at 3 17 38 PM" src="https://user-images.githubusercontent.com/112992643/234393631-caad9546-919e-4e61-860f-29db7005cf86.png">
-
-      hour_month <- combined %>%
+        hour_month <- combined %>%
         group_by(Hour,Month) %>%
         dplyr::summarize(Total = n()) 
       write.csv(hour_month, "result_hour_month.csv")
       datatable(hour_month)
 
+## Chart that shows Trips by Hour and Month
+
+              combined$Date <- as.Date(combined$Date)
+            ggplot(hour_month, aes(Hour, Total, fill =factor(Month))) +
+              geom_bar(stat = "identity", color = "red") +
+              scale_fill_manual(values = c("#CC1011", "#665555", "#05a399", "#cfcaca", "#f5e840", "#0683c9", "#e075b0")) + # Set custom                 colors for each month
+              ggtitle("Trips Every Hour") +
+              theme(legend.position = "none") +
+              scale_y_continuous(labels = comma)
+
+<img width="1440" alt="Screen Shot 2023-04-25 at 3 17 38 PM" src="https://user-images.githubusercontent.com/112992643/234393631-caad9546-919e-4e61-860f-29db7005cf86.png">
 
 The line chart displays the total number of trips by hour and month. It consists of multiple lines, each representing a different month, and shows how the number of trips changes over the hours of the day for each month.
 
