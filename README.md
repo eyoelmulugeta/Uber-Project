@@ -32,6 +32,17 @@ By examining the lines, you can observe how the number of trips varies by hour o
 
 
 ## Chart that displays Trips Every Hour.
+
+        ggplot(hour_month, aes(Hour, Total, color = factor(Month))) +
+          geom_line(size = 1) +
+          labs(x = "Hour", y = "Trips", color = "Month") +
+          ggtitle("Trips by Hour and Month") +
+          theme_minimal() +
+          scale_color_manual(values = c("#CC1011", "#665555", "#05a399", "#cfcaca", "#f5e840", "#0683c9", "#e075b0")) + # Set custom colors for each month
+          scale_y_continuous(labels = comma)
+
+        combined$Date <- as.Date(combined$Date)
+
 <img width="1440" alt="Screen Shot 2023-04-25 at 3 18 12 PM" src="https://user-images.githubusercontent.com/112992643/234394127-81c78313-9ac2-4343-8c64-68ea181181bd.png">
 
 
@@ -43,6 +54,21 @@ By examining the heights of the bars, you can see the distribution of trips thro
 
 
 ## Plot data by trips taken during every day of the month.
+
+        day_group <- combined %>%
+          mutate(Day = day(Date)) %>%
+          group_by(Hour,Month,Base,Day) %>%
+          dplyr::summarize(Total = n()) 
+        write.csv(day_group, "result_hour_month.csv")
+
+        # Create a line plot
+        ggplot(day_group, aes(Day, Total)) +
+          geom_line(size = 1) +
+          labs(x = "Day of Month", y = "Trips") +
+          ggtitle("Trips by Day of Month") +
+          theme_minimal() +
+          scale_x_continuous(breaks = 1:31) # Set x-axis breaks to show all days of the month
+
 <img width="1440" alt="Screen Shot 2023-04-25 at 3 18 28 PM" src="https://user-images.githubusercontent.com/112992643/234394590-aa805634-e8d3-4a87-8baf-97a891506e3f.png">
 
 
@@ -51,6 +77,14 @@ The chart is a line chart that shows the total number of trips for each day of t
 The x-axis represents the days of the month, ranging from the 1st day to the last day of the month. The y-axis represents the total number of trips. The line on the chart connects the data points, showing the trend of trips taken over the course of the month.
 
 ## table that shows Trips Every Day
+
+        ggplot(day_group, aes(Day, Total)) +
+          geom_bar(stat = "identity", width = 0.7, fill = "steelblue") +
+          labs(x = "Day of Month", y = "Trips") +
+          ggtitle("Trips by Day") +
+          theme_minimal() +
+          scale_x_continuous(breaks = 1:31)
+
 
 <img width="1440" alt="Screen Shot 2023-04-25 at 3 18 43 PM" src="https://user-images.githubusercontent.com/112992643/234395246-bee197a2-6a00-4baa-a704-37ed5fab64ca.png">
 
