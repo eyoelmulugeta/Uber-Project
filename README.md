@@ -127,7 +127,8 @@ Overall, this plot provides an overview of the variations in the number of trips
           scale_fill_discrete(name = "Month") +
           theme_minimal()
           
-        <img width="1440" alt="Screen Shot 2023-05-02 at 7 23 03 PM" src="https://user-images.githubusercontent.com/112992643/235812140-0e3c306c-5270-438b-93bc-8d66612b3c6e.png">
+<img width="1440" alt="Screen Shot 2023-05-02 at 7 23 03 PM" src="https://user-images.githubusercontent.com/112992643/235812270-49002a3c-27cc-4353-b31d-65db80c2965e.png">
+
 
        The above chart has column chart showing the total number of trips per base for each month. The x-axis shows the bases, and the y-axis shows the number of trips. Each column is split by month, with each color representing a different month. The chart allows for easy comparison of the number of trips per base between different months.
        
