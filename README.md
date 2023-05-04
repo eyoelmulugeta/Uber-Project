@@ -159,5 +159,57 @@ The above chart has column chart showing the total number of trips per base for 
 
 This plot shows a heatmap of the number of trips taken at different hours of the day and days of the month. The plot is divided into a grid with the x-axis representing the hours of the day and the y-axis representing the days of the month. The color of each tile in the plot represents the number of trips taken during that hour and day, with darker shades of blue indicating higher numbers of trips.
        
-       
+## Heat map by month and day
 
+        Heatmap_by_Month_and_Day<- combined %>%
+          mutate(Day = day(Date)) %>%
+          group_by(Day,Hour,Month) %>%
+          summarize(Total = n())
+        write.csv(Heatmap_by_Month_and_Day, "Heatmap_by_Month_and_Day.csv")
+
+        ggplot(Heatmap_by_Month_and_Day, aes(Day, Month, fill = Total)) +
+          geom_tile(color = "white") +
+          ggtitle("Heat Map by Month and Day")
+        
+<img width="1440" alt="Screen Shot 2023-05-04 at 4 57 14 PM" src="https://user-images.githubusercontent.com/112992643/236339050-4d932ced-346e-4b27-b60c-d0eb9c438dca.png">
+
+The heatmap displays the total number of a given event that occurred on each day of the week and month of the year. The color of the tiles in the heatmap represents the number of events that occurred on a given day and month. The darker the color of the tile, the higher the number of events that occurred. The resulting heatmap provides an easy-to-read visual representation of the data, allowing patterns and trends to be easily identified.
+
+## Heat map by month and week
+
+dayofweek = rep(c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"), times = 12)
+
+        Heatmap_by_Month_and_Week<- combined %>%
+          mutate(Day = day(Date)) %>%
+          group_by(dayofweek,Hour,Month) %>%
+          summarize(Total = n())
+        write.csv(Heatmap_by_Month_and_Week, "Heatmap_by_Month_and_Week.csv")
+
+        ggplot(Heatmap_by_Month_and_Week, aes(dayofweek, Month, fill = Total)) +
+          geom_tile(color = "white") +
+          ggtitle("Heat Map by Month and Day of Week")
+
+<img width="1440" alt="Screen Shot 2023-05-04 at 5 02 09 PM" src="https://user-images.githubusercontent.com/112992643/236339344-af207aa9-4759-4aef-94d9-102a2b686dcd.png">
+
+The heatmap displays the total number of a given event that occurred on each day of the week and month of the year. The color of the tiles in the heatmap represents the number of events that occurred on a given day and month. we can see the heat map getting lighter as we go from left to right. 
+
+## Heat map Bases and Day of Week
+
+        Heat_Map_by_Bases_and_Day_of_Week<- combined %>%
+          mutate(Day = day(Date)) %>%
+          group_by(Base,dayofweek) %>%
+          summarize(Total = n())
+        write.csv(Heat_Map_by_Bases_and_Day_of_Week, "Heat_Map_by_Bases_and_Day_of_Week.csv")
+
+        ggplot(Heat_Map_by_Bases_and_Day_of_Week, aes(Base, dayofweek, fill = Total)) +
+          geom_tile(color = "white") +
+          ggtitle("Heat Map by Bases and Day of Week")
+          
+ <img width="1440" alt="Screen Shot 2023-05-04 at 5 05 11 PM" src="https://user-images.githubusercontent.com/112992643/236339809-d036c10a-c6e9-459d-b95b-43e87e5ac8fd.png">
+ 
+This heatmap is a combination of base and day of the week. The x-axis represents the different bases (first, second, and third), while the y-axis represents the days of the week (Monday through Sunday). The heatmap color scale ranges from lighter shades for lower counts to darker shades for higher counts. 
+
+## Geo spatial Map 
+
+This map scatterplot of the latitude and longitude coordinates of Uber rides in New York City during 2014 (April-September). The x-axis represents the longitude values and the y-axis represents the latitude values. The scatterplot shows each Uber ride as a blue point 
+   
